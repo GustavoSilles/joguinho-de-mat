@@ -29,7 +29,7 @@ function criarProblema(){
 
 function compareAnswer(){
 
-    let answer = document.getElementById("answer").value
+    let answer = document.getElementById("answer").innerHTML
     
     if(answer == resultado2){
         resultadoDaOperacao.innerHTML="CORRETO"
@@ -37,4 +37,18 @@ function compareAnswer(){
         resultadoDaOperacao.innerHTML="ERRADO"
     }
 }
+
+document.onkeyup = function (evento){
+    let tecla = Number(evento.key)
+    document.getElementById('answer').innerHTML = tecla
+    compareAnswer()
+    // removeEventListener()
+    // DWSABILITAR O EVENTO
+    // 3S
+    setTimeout(function() {
+        window.location.reload(1);
+      }, 3000);
+}
+criarProblema()
+
 
